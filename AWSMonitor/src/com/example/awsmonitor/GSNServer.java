@@ -6,7 +6,7 @@ import java.util.Date;
 public class GSNServer {
 	private String BASE_URL;
 	private int port;
-	
+	 
 	public ArrayList<VirtualSensor> vs;
 	
 	public class VirtualSensor {
