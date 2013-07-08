@@ -34,12 +34,24 @@ public class GsnParser {
                 continue;
             }
             String name = parser.getName();
+            String name_attr = "";
+            try{
+            	if(parser.getAttributeName(0).equals("name"))
+            		name_attr = parser.getAttributeValue(0);
+            } catch (IndexOutOfBoundsException e){
+            	
+            }
             // Starts by looking for the tuple tag
             if (name.equals("tuple")) {
                 entries.add(readEntry(parser));
             }
-            else if (name.equals("data")){
+            else if (name.equals("data") || name.equals("stream-element")){
             	parser.next();
+            }
+            else if (name.equals("field") && name_attr.equals("max(timed)")){
+            	String field = readField(parser);
+            	Entry entry = new Entry(field);
+            	entries.add(entry);
             }
             else {
                 skip(parser);
@@ -49,9 +61,9 @@ public class GsnParser {
     }
     
     public static class Entry {
-        public final Float field;
+        public final String field;
 
-        private Entry(Float field) {
+        private Entry(String field) {
             this.field = field;
         }
     }
@@ -60,7 +72,7 @@ public class GsnParser {
     // to their respective "read" methods for processing. Otherwise, skips the tag.
     private Entry readEntry(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "tuple");
-        Float field = null;
+        String field = null;
         int i = 1;
         //Log.e("MainActivity", String.valueOf(i));
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -79,10 +91,10 @@ public class GsnParser {
     }
 
     // Processes field tags in the feed.
-    private Float readField(XmlPullParser parser) throws IOException, XmlPullParserException {
+    private String readField(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "field");
-        Float field = Float.parseFloat(readText(parser));
-Log.i("TAG", field.toString());
+        String field = readText(parser);
+//Log.i("TAG", field.toString());
         parser.require(XmlPullParser.END_TAG, ns, "field");
         return field;
     }

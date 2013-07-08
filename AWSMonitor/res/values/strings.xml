@@ -4,7 +4,8 @@
     <string name="app_name">AWSMonitor</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-	<string name="testo1">Temperatura media ultimo giorno:</string>
-	<string name="testo_problema">Si è verificato un problema</string>
-	<string name="xml_error">Si è verificato un problema XML</string>
+	<string name="testo1">Average Air Temp (last day):</string>
+	<string name="testo_problema">A problem occurred</string>
+	<string name="xml_error">XML problem occurred</string>
+	<string name="ultimo_record">Latest record:</string>
 </resources>

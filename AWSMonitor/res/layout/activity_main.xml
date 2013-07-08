@@ -13,9 +13,24 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" /> -->
 	<TextView
-	    android:id="@+id/textView1"
+	    android:id="@+id/lastDay"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/lastRecord"
+	    android:layout_below="@+id/lastRecord"
+	    android:text=""
+	    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	<TextView
+	    android:id="@+id/lastRecord"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:text=""
-	    android:textAppearance="?android:attr/textAppearanceLarge" />
+	    android:textAppearance="?android:attr/textAppearanceSmall" />
+	<Button
+	    android:id="@+id/GraphMonthTemp"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:onClick="graphMonthTempHandler"
+	    android:text="GRAPH" />
 </RelativeLayout>
