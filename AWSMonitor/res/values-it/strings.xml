@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AWSMonitor</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="testo1">Temperatura media ultimo giorno:</string>
+	<string name="testo_problema">Si è verificato un problema</string>
+	<string name="xml_error">Si è verificato un problema XML</string>
+	<string name="ultimo_record">Ultimo record:</string>
+</resources>
